@@ -31,7 +31,7 @@ class TestUrbanRoutes:
     def test_comfort_tariff(self):
         routes_page = UrbanRoutesPage(self.driver)
         routes_page.insert_comfort_tariff()
-        assert routes_page.get_comfort_tariff() == 'Requisitos del pedido'
+        assert routes_page.get_comfort_tariff() == 'Manta y pañuelos' #CAMBIO SEGUN LA SUGERENCIA
 
     # Prueba 3: Insertar numero de telefono ( Test: Phone number )
     def test_phone_number(self):
@@ -43,8 +43,8 @@ class TestUrbanRoutes:
     def test_payment_method(self):
         routes_page = UrbanRoutesPage(self.driver)
         routes_page.insert_payment_method()
-        assert  routes_page.get_for_test_card_number() == data.card_number
-        assert routes_page.get_for_test_card_code() == data.card_code
+        assert  routes_page.get_for_test_payment_text() == "Tarjeta" #CAMBIO SEGUN LA SUGERENCIA
+        assert routes_page.get_for_test_card_code() == data.card_code #CAMBIO SEGUN LA SUGERENCIA
 
     # Prueba 5: Mensaje al conductor ( Test: message for driver de data.py)
     def test_message_for_driver(self):

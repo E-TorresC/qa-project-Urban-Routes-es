@@ -12,7 +12,7 @@ class UrbanRoutesPage:
 
     # Selectores de Interaccion 2: Seleccionar tarifa comfort
     comfort_tariff_icon = (By.CSS_SELECTOR, "div.tcard:nth-child(5)>div:nth-child(3)")
-    to_test_comfort_tariff = (By.CLASS_NAME, 'reqs-head')
+    to_test_comfort_tariff = (By.CLASS_NAME, 'r-sw-label')
 
     # Selectores de Interaccion 3: Colocar numero de telefono
     phone_field = (By.CLASS_NAME, 'np-button')
@@ -26,12 +26,12 @@ class UrbanRoutesPage:
     payment_method_field = (By.CLASS_NAME, 'pp-value')
     select_payment_method = (By.CSS_SELECTOR, '#root > div > div.payment-picker.open > div.modal > div.section.active > div.pp-selector > div.pp-row.disabled > div.pp-title')
     input_card_number = (By.CLASS_NAME, 'card-input')
-    input_card_code = (By.XPATH, '/html/body/div/div/div[2]/div[2]/div[2]/form/div[1]/div[2]/div[2]/div[2]/input')
+    input_card_code = (By.CSS_SELECTOR, '#code.card-input') #CAMBIO SEGUN LA SUGERENCIA
     blank_space = (By.CLASS_NAME, 'pp-buttons')
     select_card_button = (By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[2]/form/div[3]/button[1]')
     select_payment_method_close_button = (By.XPATH, '/html/body/div/div/div[2]/div[2]/div[1]/button')
-    to_test_card_number = (By.CLASS_NAME, 'card-input')
-    to_test_card_code = (By.XPATH, '/html/body/div/div/div[2]/div[2]/div[2]/form/div[1]/div[2]/div[2]/div[2]/input')
+    to_test_payment_text = (By.CLASS_NAME, 'pp-value-text') #CAMBIO SEGUN LA SUGERENCIA
+    to_test_card_code = (By.CSS_SELECTOR, '#code.card-input') #CAMBIO SEGUN LA SUGERENCIA
 
     # Selectores de Interaccion 5: Mensaje al conductor
     input_comment_driver = (By.ID, 'comment')
@@ -134,8 +134,8 @@ class UrbanRoutesPage:
     def click_close_payment_method(self):
         self.driver.find_element(*self.select_payment_method_close_button).click()
 
-    def get_for_test_card_number(self):
-        return self.driver.find_element(*self.to_test_card_number).get_property('value')
+    def get_for_test_payment_text(self):
+        return self.driver.find_element(*self.to_test_payment_text).text
 
     def get_for_test_card_code(self):
         return self.driver.find_element(*self.to_test_card_code).get_property('value')
